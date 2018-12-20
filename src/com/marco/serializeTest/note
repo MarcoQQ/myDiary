@@ -1,0 +1,15 @@
+    MyLog myLog = new MyLog("syw", "lala");
+    try {
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream("/Users/sunwenbin/Downloads/javatest/src/com/marco/serializeTest/mylog"));
+        objectOutputStream.writeObject(myLog);
+        objectOutputStream.close();
+    }catch (Exception e){
+        e.printStackTrace();
+    }
+    try {
+        ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("/Users/sunwenbin/Downloads/javatest/src/com/marco/serializeTest/mylog"));
+        MyLog myLog1 = (MyLog) objectInputStream.readObject();
+        System.out.println(myLog1);
+    }catch (Exception e){
+        e.printStackTrace();
+    }
