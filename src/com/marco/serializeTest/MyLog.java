@@ -11,9 +11,14 @@ public class MyLog implements java.io.Serializable{
         pwd = password;
     }
 
+    public MyLog(String name){
+        uid = name;
+    }
+
     @Override
     public String toString() {
         String password;
+
         if(pwd == null){
             password = "NOT SET";
         }else{
