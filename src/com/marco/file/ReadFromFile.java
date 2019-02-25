@@ -43,10 +43,12 @@ public class ReadFromFile {
 
     public static void readFileByChars(String fileName){
         File file = new File(fileName);
-        Reader reader = null;
+        FileReader reader;
+//        Reader reader = null;
         try{
             System.out.println("以字符为单位读取文件内容，一次读一个字节");
-            reader = new InputStreamReader(new FileInputStream(file));
+//            reader = new InputStreamReader(new FileInputStream(file));
+            reader = new FileReader(fileName);
             int tempchar;
             while((tempchar = reader.read()) != -1){
                 // 对于windows下，\r\n这两个字符在一起时，表示一个换行。
@@ -60,35 +62,36 @@ public class ReadFromFile {
         }catch (Exception e){
             e.printStackTrace();
         }
-        try{
-            System.out.println("以字符为单位读取文件内容，一次读多个字节");
-            char[] tempchars = new char[30];
-            int charread = 0;
-            reader = new InputStreamReader(new FileInputStream(fileName));
-            while ((charread = reader.read(tempchars)) != -1) {
-                if ((charread == tempchars.length)
-                        && (tempchars[tempchars.length - 1] != '\r')) {
-                    System.out.print(tempchars);
-                } else {
-                    for (int i = 0; i < charread; i++) {
-                        if (tempchars[i] == '\r') {
-                            continue;
-                        } else {
-                            System.out.print(tempchars[i]);
-                        }
-                    }
-                }
-            }
-            }catch (Exception e){
-            e.printStackTrace();
-        }finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e1) {
-                }
-            }
-        }
+//        try{
+//            System.out.println("以字符为单位读取文件内容，一次读多个字节");
+//            char[] tempchars = new char[30];
+//            int charread = 0;
+//            reader = new InputStreamReader(new FileInputStream(fileName));
+//
+//            while ((charread = reader.read(tempchars)) != -1) {
+//                if ((charread == tempchars.length)
+//                        && (tempchars[tempchars.length - 1] != '\r')) {
+//                    System.out.print(tempchars);
+//                } else {
+//                    for (int i = 0; i < charread; i++) {
+//                        if (tempchars[i] == '\r') {
+//                            continue;
+//                        } else {
+//                            System.out.print(tempchars[i]);
+//                        }
+//                    }
+//                }
+//            }
+//            }catch (Exception e){
+//            e.printStackTrace();
+//        }finally {
+//            if (reader != null) {
+//                try {
+//                    reader.close();
+//                } catch (IOException e1) {
+//                }
+//            }
+//        }
 
 
     }

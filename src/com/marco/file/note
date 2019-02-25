@@ -1,0 +1,3 @@
+String fileName = "/Users/sunwenbin/Desktop/笔记/线程";
+        ReadFromFile.readFileByChars(fileName);
+//        AppendToFile.append(fileName,"2018年底");
